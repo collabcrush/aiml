@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+<!-- -->
+<!-- Free software (c) 2011 ALICE A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the ALICE A.I. Foundation.  -->
+<!-- Last modified 11/23/2011 -->
+<!-- -->
+
+<!-- Basic Pattern Matching -->
+<category>
+<pattern>HELLO</pattern>
+<template>Hi there!</template>
+</category>
+
+<!-- Matching with Wildcards -->
+<category>
+<pattern>HELLO *</pattern>
+<template>Hello yourself!</template>
+</category>
+
+<category>
+<pattern>ARE YOU A ROBOT</pattern>
+<template>How did you guess?</template>
+</category>
+
+<category>
+<pattern>* IS THE BEST</pattern>
+<template>The best? That's quite an endorsement.</template>
+</category>
+
+<category>
+<pattern>THIS * IS WONDERFUL</pattern>
+<template>I think so too.</template>
+</category>
+
+<!-- Catchall -->
+<category>
+<pattern>*</pattern>
+<template>I'm not sure what to think about that.</template>
+</category>
+
+<!-- Repeating Wildcards back to the user <star/>-->
+<category>
+<pattern>* IS WONDERFUL</pattern>
+<template>I agree... <star /> is great!</template>
+</category>
+
+<category>
+<pattern>THIS * IS WONDERFUL *</pattern>
+<template>Yes, it's wonderful <star index="2" /> indeed.</template>
+</category>
+
+<!-- Referents with <srai> tag. -->
+<category>
+<pattern>WHAT IS YOUR NAME</pattern>
+<template>My name is Simplebot.</template>
+</category>
+
+<category>
+<pattern>DO YOU HAVE A NAME</pattern>
+<template><srai>WHAT IS YOUR NAME</srai></template>
+</category>
+
+<category>
+<pattern>WHO ARE YOU</pattern>
+<template><srai>WHAT IS YOUR NAME</srai></template>
+</category>
+
+<!-- Context Awareness with <that> -->
+<category>
+<pattern>WHAT IS WEBEX</pattern>
+<template>Webex is an awesome app for meetings.</template>
+</category>
+
+<category>
+<pattern>IS THAT ALL</pattern>
+<that>WEBEX IS AN AWESOME APP FOR MEETINGS</that>
+<template>You can also do calling and messaging.</template>
+</category>
+
+
+<!-- Randomizing Responses> -->
+<category>
+<pattern>HI</pattern>
+<template>
+    <random>
+        <li>Hi there!</li>
+        <li>Hi yourself!</li>
+        <li>Hey.</li>
+        <li>Hiya.</li>
+        <li>Howdy.</li>
+    </random>
+</template>
+</category>
+
+</aiml>
